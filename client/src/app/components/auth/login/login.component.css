@@ -1,0 +1,14 @@
+.maim-div h2{
+  padding: 10px;
+}
+h2{
+  text-align: center;
+}
+.login-form{
+  padding: 20px;
+}
+
+mat-card {
+  background-color: transparent;
+  /* background: linear-gradient(to right,#1ff918, #16d7e9); */
+}

@@ -1,0 +1,25 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+	<mat-card fxFlex="25">
+		<h2 color="primary">Login page</h2>
+		<form fxLayoutAlign="streetch" fxLayout="column" class="login-form">
+			<mat-form-field appearance="outline">
+				<mat-label>firstname</mat-label>
+				<input matInput >
+			</mat-form-field>
+			<mat-form-field appearance="outline">
+				<mat-label>lastname</mat-label>
+				<input matInput >
+			</mat-form-field>
+			<mat-form-field appearance="outline">
+				<mat-label>Email</mat-label>
+				<input matInput >
+			</mat-form-field>
+			<mat-form-field appearance="outline">
+				<mat-label>password</mat-label>
+				<input matInput type="password">
+			</mat-form-field>
+			<button mat-raised-button color="primary" type="submit">Login</button>
+			<a routerLink="/login">Register</a>
+		</form>
+	</mat-card>
+</div>

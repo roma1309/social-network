@@ -1,0 +1,43 @@
+mat-toolbar{
+    background: linear-gradient(to right,#1ff918, #16d7e9);
+    
+}
+.spacer{
+    flex: 1 1 auto;
+}
+mat-sidenav{
+    margin: 16px;
+    width: 20%;
+    border-right: none;
+    background: rgb(191, 191, 244);
+    color: #1ccc12;
+    text-align: center;
+    border-radius: 16px;
+    padding: 20px;
+}
+mat-sidenav-container{
+    height: calc(100vh-70px);
+    display: flex;
+}
+
+mat-sidenav-content{
+    padding: 10rem;
+    width: 80%;
+    border-radius: 16px;
+}
+
+.searchInput{
+    margin: 24px;
+}
+/* .content{
+    margin: 16px;
+    align-items: center;
+    margin-left: 32px;
+    display: flex;
+    justify-items: center;
+} */
+
+/* mat-sidenav-content{
+    height: 80vh;
+    padding: 1 rem;  
+} */

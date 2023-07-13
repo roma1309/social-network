@@ -1,0 +1,30 @@
+<mat-toolbar >
+    <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>chat</mat-icon>
+    </button>
+    <span>
+        <h4>Application Name</h4>
+    </span>
+    <span class="spacer"></span>
+    <button mat-button>Main</button>
+    <button mat-button >Profile</button>
+    <button mat-button>Home</button>
+    <button mat-raised-button color="accent">Sign-up</button>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #drawer opened="false" mode="side">
+        <div class="searchInput">
+            <mat-form-field >
+                <mat-label>Search your chat</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+           <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
