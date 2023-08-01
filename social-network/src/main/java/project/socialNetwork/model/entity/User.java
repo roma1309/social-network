@@ -1,11 +1,11 @@
 package project.socialNetwork.model.entity;
 
-import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import project.socialNetwork.model.enums.Role;
 
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.List;
 
