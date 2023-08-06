@@ -1,9 +1,11 @@
 package project.socialNetwork.service;
 
-import project.socialNetwork.model.entity.User;
+import project.socialNetwork.auth.request.SignupRequest;
+import project.socialNetwork.model.entity.UserEntity;
 
 import java.util.Optional;
 
 public interface UserService {
-    public Optional<User> findByUsername(String email);
+    public Optional<UserEntity> findByUsername(String email);
+    public UserEntity createUser(SignupRequest signupRequest);
 }

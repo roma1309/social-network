@@ -1,10 +1,10 @@
 package project.socialNetwork.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import project.socialNetwork.model.entity.User;
+import project.socialNetwork.model.entity.UserEntity;
 
 import java.util.Optional;
 
-public interface UserRepo extends JpaRepository<User,Long> {
-    Optional<User> findByEmail(String email);
+public interface UserRepo extends JpaRepository<UserEntity, Long> {
+    Optional<UserEntity> findByEmail(String email);
 }

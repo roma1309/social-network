@@ -11,7 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "Users")
-public class User implements UserDetails {
+public class UserEntity implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,7 +25,7 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public User() {
+    public UserEntity() {
     }
 
     @Override

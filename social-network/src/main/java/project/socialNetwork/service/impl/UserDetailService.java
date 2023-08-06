@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import project.socialNetwork.model.entity.User;
+import project.socialNetwork.model.entity.UserEntity;
 import project.socialNetwork.repository.UserRepo;
 import project.socialNetwork.service.UserService;
 
@@ -14,16 +14,17 @@ import java.util.Collection;
 
 @Service
 public class UserDetailService implements UserDetailsService {
-    private final UserService userService;
+    private final UserRepo userRepo;
 
     @Autowired
-    public UserDetailService(UserService userService) {
-        this.userService = userService;
+    public UserDetailService(UserRepo userRepo) {
+        this.userRepo = userRepo;
     }
+
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findByUsername(username)
+        UserEntity user = userRepo.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException(String.format("User '%s' not found", username)));
         return user;
     }
