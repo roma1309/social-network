@@ -10,6 +10,10 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { authIntercepterProviders } from './helper/auth-interceptor.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { MainComponent } from './components/main/main.component';
 
 @NgModule({
   declarations: [
@@ -17,16 +21,20 @@ import { ChatComponent } from './components/chat/chat.component';
     RegisterComponent,
     LoginComponent,
     NavigationComponent,
-    ChatComponent
+    ChatComponent,
+    MainComponent
   ],
   imports: [
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [authIntercepterProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

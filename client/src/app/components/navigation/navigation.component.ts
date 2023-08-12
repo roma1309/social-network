@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Routes } from '@angular/router';
+import { Router, Routes } from '@angular/router';
+import { TokenStorageService } from 'src/app/service/token-storage.service';
 
 
 @Component({
@@ -9,4 +10,30 @@ import { Routes } from '@angular/router';
 })
 export class NavigationComponent {
 
+  isLoggedIn=false;
+  isDataLoaded=false;
+  role!: string;
+ // user!: User;
+
+  constructor(private tokenService:TokenStorageService,
+   // private userService:UserService,
+    private router:Router) { }
+
+  ngOnInit(): void {
+    this.isLoggedIn = !! this.tokenService.getToken();
+
+    // if(this.isLoggedIn){
+    //   this.userService.getCurrentUser()
+    //   .subscribe(data => {
+    //     this.user=data;
+    //     this.isDataLoaded=true;
+    //     this.role = data.role;
+    //   })
+    // }
+  }
+
+  logout(): void{
+    this.tokenService.logOut();
+    this.router.navigate(['/login']);
+  }
 }
