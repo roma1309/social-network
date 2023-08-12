@@ -43,6 +43,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
                 LOG.debug("The signature is incorrect");
             }
         }
+
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
                     username,

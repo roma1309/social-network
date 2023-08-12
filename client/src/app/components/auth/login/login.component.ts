@@ -41,12 +41,12 @@ export class LoginComponent {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     }).subscribe({next : (data) => {
-      this.tokenStorage.saveToken(data.jwt);
+      this.tokenStorage.saveToken(data.token);
       this.tokenStorage.saveUser(data);
      // this.notificationService.showSnackBar("Успешно");
       this.router.navigate(['/main']);
       window.location.reload();
-      console.log(data.jwt);
+      console.log(data.token);
     }, error : err =>{
     console.log(err);
    // this.notificationService.showSnackBar(err.message);

@@ -3,6 +3,7 @@ package project.socialNetwork.service.impl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import project.socialNetwork.auth.request.SignupRequest;
@@ -12,6 +13,7 @@ import project.socialNetwork.model.enums.Role;
 import project.socialNetwork.repository.UserRepo;
 import project.socialNetwork.service.UserService;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @Service
@@ -51,5 +53,17 @@ public class UserServiceImpl implements UserService {
             LOG.error("Error during registration. {}", e.getMessage());
             throw new UserExistException("The user" + signupRequest.getEmail() + "already exist. Please check credentials");
         }
+    }
+
+    @Override
+    public UserEntity getCurrentUser(Principal principal) {
+        return getUserByPrincipal(principal);
+    }
+
+    private UserEntity getUserByPrincipal(Principal principal) {
+      //  System.out.println(principal.getName());
+        String username = principal.getName();
+        UserEntity userEntity = userRepo.findByEmail(username).orElseThrow(() -> new UsernameNotFoundException("Username not found with username - " + username));
+        return userEntity;
     }
 }
