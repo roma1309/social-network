@@ -1,4 +1,4 @@
 export class JwtResponse{
-    jwt!: string;
-    roles!: string[];
+    token!: string;
+    role!: string[];
 }

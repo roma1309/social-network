@@ -9,7 +9,8 @@
     <button mat-button>Main</button>
     <button mat-button >Profile</button>
     <button mat-button>Home</button>
-    <button mat-raised-button color="accent">Sign-up</button>
+    <button *ngIf="!isLoggedIn" mat-raised-button color="accent">Sign-up</button>
+    <button *ngIf="isLoggedIn" (click)="logout()" mat-raised-button color="accent">Logout</button>
 </mat-toolbar>
 
 <mat-sidenav-container>
